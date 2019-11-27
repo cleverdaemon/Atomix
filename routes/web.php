@@ -17,6 +17,8 @@ Route::get('/', 'DashboardController@home')->name('home');
 
 Route::get('/dashboard', "DashboardController@index")->middleware('auth')->name('dashboard');
 
+Route::get('/user/{username}', 'ProfileController@getProfile')->middleware('auth')->name('profile.index');
+
 Route::get('/atom/new', 'AtomController@new')->middleware('verified')->name('atom.new');
 
 Route::get('/atom/{id}/edit', 'AtomController@edit')->middleware('verified')->name('atom.edit');

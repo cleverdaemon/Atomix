@@ -16,7 +16,7 @@
                 <ul class="navbar-nav ml-auto">
                     <!-- Authentication Links -->
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('newAtom') }}">{{ __('New Atom') }}</a>
+                            <a class="nav-link" href="{{ route('atom.new') }}">{{ __('New Atom') }}</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

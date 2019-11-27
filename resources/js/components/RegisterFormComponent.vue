@@ -70,10 +70,7 @@
         methods: {
             handleSuccess() {
                 window.location.href = route('home');
-            },
-            beforeSubmit() {
-                $('button#register_btn').attr('disabled', true);
             }
-        },
+        }
     }
 </script>

@@ -1,5 +1,5 @@
 <template>
-	<div class="container">
+	<div class="container-fluid">
         <v-iframe-row v-for="(row, index) in rows" :id="index" :atom_grid="atom_grid[index]" :key="index"></v-iframe-row>
    	</div>
 </template>

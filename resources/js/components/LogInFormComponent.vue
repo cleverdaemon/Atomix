@@ -61,10 +61,7 @@
         methods: {
             handleSuccess() {
                 window.location.href = route('dashboard');
-            },
-            beforeSubmit() {
-                $('button#login_btn').attr('disabled', true);
             }
-        },
+        }
     }
 </script>

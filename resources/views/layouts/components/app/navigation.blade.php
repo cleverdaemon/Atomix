@@ -32,6 +32,9 @@
                                 <a id="navbarDropdown" class="nav-link text-uppercase" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img class="img-circle" src="{{ Gravatar::get(Auth::user()->email, 'navigation') }}" height="32" width="32" /></a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item text-uppercase" href="{{ route('profile.index', ['username' => Auth::user()->name]) }}">{{ __('Your Profile') }}</a>
+                                    <a class="dropdown-item text-uppercase" href="#">{{ __('Your Atoms') }}</a>
+                                    <a class="dropdown-item text-uppercase" href="#">{{ __('Update Profile') }}</a>
                                     <a class="dropdown-item text-uppercase" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

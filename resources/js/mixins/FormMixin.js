@@ -1,4 +1,4 @@
-export default {  
+export default {
   data() {
     return {
       fields: {},
@@ -12,31 +12,32 @@ export default {
 
   methods: {
     submit() {
+      var form = event.target;
+      var submitButton = $(event.target).find(":submit")[0];
       if (this.loaded) {
+        this.loaded = false;
+        this.success = false;
+        this.errors = {};
+        $(submitButton).attr('disabled', true);
         this.beforeSubmit();
         axios[this.method.toLowerCase()](this.action, this.fields).then(response => {
-          this.handleSuccess();
+          this.fields = {}; //Clear input fields.
+          this.loaded = true;
+          this.success = true;
+          $(submitButton).attr('disabled', false);
+          this.handleSuccess(response);
         }).catch(error => {
+          this.loaded = true;
+          if (error.response.status === 422) {
+            this.errors = error.response.data.errors || {};
+          }
+          $(submitButton).attr('disabled', false);
           this.handleError(error);
         });
       }
     },
-    beforeSubmit() {
-      this.loaded = false;
-      this.success = false;
-      this.errors = {};
-    },
-    handleError(error) {
-      this.loaded = true;
-      console.log(error.response);
-      if (error.response.status === 422) {
-        this.errors = error.response.data.errors || {};
-      }
-    },
-    handleSuccess() {
-          this.fields = {}; //Clear input fields.
-          this.loaded = true;
-          this.success = true;
-    } 
+    beforeSubmit() {},
+    handleError(error) {},
+    handleSuccess() {}
   }
 }
